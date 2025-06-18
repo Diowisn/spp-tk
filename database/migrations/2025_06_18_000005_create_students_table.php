@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id();
+            $table->id(); 
             $table->string('name');
             $table->foreignId('class_id')->constrained('classes');
             $table->foreignId('parent_id')->constrained('parents');
             $table->date('birth_date');
-            $table->text('address')->nullable();
+            $table->text('address')->nullable(); // nisn, nama ibu, no hp
             $table->timestamps();
         });
     }

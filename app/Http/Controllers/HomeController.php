@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (auth()->user()->isAdmin()) {
+            return redirect()->route('admin.dashboard');
+        } elseif (auth()->user()->isParent()) {
+            return redirect()->route('parent.payments');
+        }
+        
         return view('home');
     }
 }
