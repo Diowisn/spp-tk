@@ -45,7 +45,8 @@ class PaymentController extends Controller
             'admin_id' => auth()->id(),
         ]);
 
-        return redirect()->route('payments.index')->with('success', 'Pembayaran berhasil dicatat!');
+        // Updated route name to match the new route definition
+        return redirect()->route('admin.payments.index')->with('success', 'Pembayaran berhasil dicatat!');
     }
 
     public function receipt($id)

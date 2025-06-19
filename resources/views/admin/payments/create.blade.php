@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Catat Pembayaran SPP</h2>
-    <form action="{{ route('payments.store') }}" method="POST">
+    <form action="{{ route('admin.payments.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="student_id">Siswa</label>

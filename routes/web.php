@@ -21,6 +21,12 @@ Route::get('/home', function () {
 // Hanya admin
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::prefix('payments')->name('payments.')->group(function () {
+        Route::get('/', [PaymentController::class, 'index'])->name('index');
+        Route::get('/create', [PaymentController::class, 'create'])->name('create');
+        Route::post('/', [PaymentController::class, 'store'])->name('store');
+        Route::get('/{id}/receipt', [PaymentController::class, 'receipt'])->name('receipt');
+    });
 });
 
 // Hanya orang tua
